@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= configuration.title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+  
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  </head>
+<body>
+  <div class="container chat">
+    <div class="chat-header clearfix">
+      <img src="/images/default-avatar.png" alt="avatar" height="50px" class="rounded-circle" />
+
+      <div class="chat-about">
+        <div class="chat-with"><%= configuration.botName %></div>
+        <div class="chat-num-messages"><%= configuration.botRole %></div>
+      </div>
+      <i class="fa fa-circle online"></i>
+    </div>
+
+
+    <div class="chat-history">
+      <ul class='message-container'>
+        <!-- Chat History -->
+      </ul>
+      <div id="typing">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+      </div>
+    </div>
+
+    <div class="chat-message clearfix">
+      <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="1"></textarea>
+
+      <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+      <i class="fa fa-file-image-o"></i>
+
+      <button id="message-send-btn" class="btn btn-outline-primary fa fa-send-o">&nbsp;&nbsp;Send</button>
+
+    </div>
+    <!-- end chat-message -->
+
+  </div>
+  <!-- end chat -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/chatbot.js"></script>
+<script>
+$(function(){
+  app.initBot('<%= user.username %>','<%= configuration.botName %>')
+});
+</script> 
+
+</body>
+</html>
